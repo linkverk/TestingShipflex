@@ -38,7 +38,7 @@ public class Main {
         SoortOnderdelen jacht5 = new SoortOnderdelen("Motor");
         initialiseerJachtOnderdelenMotor(jacht5);
         initialiseerCategorienJachtOnderdelen(jachtOnderdelen, jacht1, jacht2, jacht3,  jacht4,  jacht5);
-        Boot jacht = new Jacht("Jacht",jachtOnderdelen );
+        Boot jacht = new Jacht("Jacht",jachtOnderdelen);
 
         ArrayList<SoortOnderdelen> ferryOnderdelen = new ArrayList<>();
        SoortOnderdelen ferry1 = new SoortOnderdelen("Laternaam");
@@ -488,6 +488,9 @@ public class Main {
         if (keuze == 1) {
             zieOfferte(milieuKortingen, boten, jouGebruiker, gebruikers, klant, klantTypes, totaal, onderdelen, soortOnderdelens);
         }
+        if (keuze == 1) {
+            ziePrijsopgave(milieuKortingen, boten, jouGebruiker, gebruikers, klant, klantTypes, totaal, onderdelen, soortOnderdelens);
+        }
         if (keuze == 2) {
             zieLijstopties(milieuKortingen, boten, jouGebruiker, gebruikers, klant, klantTypes, totaal, onderdelen, soortOnderdelens);
 
@@ -496,17 +499,35 @@ public class Main {
             login(milieuKortingen, boten, gebruikers, klant, klantTypes, totaal, onderdelen, soortOnderdelens);
         }
     }
-
     public static void zieOfferte(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, ArrayList<Gebruiker> gebruikers, KlantType klant, ArrayList<KlantType> klantTypes, Totaal totaal, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens) {
 
         System.out.println(jouGebruiker.getBootNaam());
         System.out.println();
         for (Onderdelen onderdeel : jouGebruiker.getTotaal().onderdelen) {
-            System.out.println(onderdeel.getNaam() + "prijs: " + onderdeel.getPrijs());
+            System.out.println(onderdeel.getNaam() + " prijs: " + onderdeel.getPrijs());
+            if(onderdeel.milieuKorting != null){
+                System.out.println(" " + onderdeel.milieuKorting.getNaam() + " :"  + onderdeel.milieuKorting.getKortingen());
+            }
+        }
+        System.out.println("Totaalprijs:" + jouGebruiker.getTotaal().getTotaalPrijs());
+        System.out.print(jouGebruiker.getKlanttype().getNaam() + "   " + jouGebruiker.getKlanttype().getKorting());
+
+    }
+    public static void ziePrijsopgave(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, ArrayList<Gebruiker> gebruikers, KlantType klant, ArrayList<KlantType> klantTypes, Totaal totaal, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens) {
+
+        System.out.println(jouGebruiker.getBootNaam());
+        System.out.println();
+        for (Onderdelen onderdeel : jouGebruiker.getTotaal().onderdelen) {
+            System.out.println(onderdeel.getNaam() + " prijs: " + onderdeel.getPrijs());
+
+
         }
         System.out.println("Totaalprijs:" + jouGebruiker.getTotaal().getTotaalPrijs());
 
     }
+
+
+
 
     public static void zieLijstopties(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, ArrayList<Gebruiker> gebruikers, KlantType klant, ArrayList<KlantType> klantTypes, Totaal totaal, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens) {
         lijstOpties(boten, jouGebruiker, totaal, klant, klantTypes, onderdelen, soortOnderdelens, gebruikers);
@@ -704,17 +725,17 @@ public class Main {
                     int keuze = scanner.nextInt();
 
                     if (keuze == 1) {
-                        categorien.get(4).getExtras().get(0).setPrijs(250);
-                        selectedOnderdelen.add(categorien.get(4).getExtras().get(0));
+                        categorien.get(3).getExtras().get(0).setPrijs(250);
+                        selectedOnderdelen.add(categorien.get(3).getExtras().get(0));
                     } else if (keuze == 2) {
-                        categorien.get(4).getExtras().get(1).setPrijs(500);
-                        selectedOnderdelen.add(categorien.get(4).getExtras().get(1));
+                        categorien.get(3).getExtras().get(1).setPrijs(500);
+                        selectedOnderdelen.add(categorien.get(3).getExtras().get(1));
                     } else if (keuze == 3) {
-                        categorien.get(4).getExtras().get(2).setPrijs(1000);
-                        selectedOnderdelen.add(categorien.get(4).getExtras().get(2));
+                        categorien.get(3).getExtras().get(2).setPrijs(1000);
+                        selectedOnderdelen.add(categorien.get(3).getExtras().get(2));
                     } else if (keuze == 4) {
-                        categorien.get(4).getExtras().get(3).setPrijs(2000);
-                        selectedOnderdelen.add(categorien.get(4).getExtras().get(3));
+                        categorien.get(3).getExtras().get(3).setPrijs(2000);
+                        selectedOnderdelen.add(categorien.get(3).getExtras().get(3));
                     }
 
                     System.out.println("Wilt u nog meer extra opties toevoegen? (ja/nee): ");
@@ -926,9 +947,9 @@ public class Main {
             System.out.println(milieukorting.getNaam());
         }
         System.out.print("Kies een milieu korting: ");
-        int keuze4 = scanner.nextInt();
+        int keuze4 = scanner.nextInt() - 1;
         gekozenOnderdeel.setMilieuKorting(milieuKortingen.get(keuze4));
-        System.out.print("Korting is toegevoegd aan: " + gekozenOnderdeel.getNaam());
+        System.out.println("Korting is toegevoegd aan: " + gekozenOnderdeel.getNaam());
         scheepsBouwerMenu(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, categorien, gebruikers);
     }
 

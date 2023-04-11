@@ -39,8 +39,9 @@ class Onderdelen {
     public double getPrijs() {
         if(milieuKorting != null){
             double onderdeelPrijsMilieu = (prijs * milieuKorting.getKortingen() / 100);
-
+prijs = onderdeelPrijsMilieu;
         }
+
         return prijs;
     }
 
