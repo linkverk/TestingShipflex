@@ -2,7 +2,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.util.List;
 
 //what to do?
 //meerdere soorten boten? elk boot andere opties? class boot?
@@ -535,7 +535,7 @@ public class Main {
     }
 
 
-   public static void scheepsBouwerMenu(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
+    public static void scheepsBouwerMenu(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Kies voor 1 van de opties:");
         System.out.println("1. Maak een offerte");
@@ -553,52 +553,54 @@ public class Main {
 
             case 1:
 
-            offerteMaker(milieuKortingen, boten, jouGebruiker, totaal, klant, onderdelen, soortOnderdelens, klanten, gebruikers);
-            break;
+                offerteMaker(milieuKortingen, boten, jouGebruiker, totaal, klant, onderdelen, soortOnderdelens, klanten, gebruikers);
+                break;
 
             case 2:
 
-            lijstOptiesScheepsBouwer(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
-            break;
+                lijstOptiesScheepsBouwer(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
+                break;
             case 3:
 
-            kiesKlantkorting(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
-            break;
+                kiesKlantkorting(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
+                break;
 
             case 4:
 
-            voegMilieukorting(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
-            break;
+                voegMilieukorting(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
+                break;
             case 5:
 
-            maakNieuweKlantType(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
-            break;
+                maakNieuweKlantType(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
+                break;
 
             case 6:
 
-            voegPrijzenOnderdelen(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
-            break;
+                voegPrijzenOnderdelen(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
+                break;
             case 7:
 
-            voegNieuweOnderdelen(milieuKortingen, onderdelen, soortOnderdelens);
-            break;
+                voegNieuweOnderdelen(milieuKortingen, onderdelen, soortOnderdelens);
+                break;
             case 8:
 
-            onderdelenVoegMilieukortingToe(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
-            break;
+                onderdelenVoegMilieukortingToe(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
+                break;
 
             case 9:
 
-            login(milieuKortingen, boten, gebruikers, klant, klanten, totaal, onderdelen, soortOnderdelens);
-            break;
+                login(milieuKortingen, boten, gebruikers, klant, klanten, totaal, onderdelen, soortOnderdelens);
+                break;
 
             default:
                 System.out.println("Ongeldige keuze, probeer nog een keer.");
                 break;
         }
     }
-        }
-    }
+
+
+
+
     public static void offerteMaker(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<Onderdelen> selectedOnderdelen, ArrayList<SoortOnderdelen> categorien, ArrayList<KlantType> klantTypes, ArrayList<Gebruiker> gebruikers) {
         Scanner scanner = new Scanner(System.in);
         Onderdelen selectedOnderdeel = null;
@@ -853,7 +855,7 @@ public class Main {
         scheepsBouwerMenu(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
     }
 
-   public static void lijstOpties(ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
+    public static void lijstOpties(ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
 
         Main optieLijst = new Main();
 
@@ -889,6 +891,7 @@ public class Main {
             System.out.println("- " + onderdeel.getNaam());
         }
     }
+
 
     public static void voegMilieukorting(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> categorien, ArrayList<Gebruiker> gebruikers) {
        Scanner scanner = new Scanner(System.in);
