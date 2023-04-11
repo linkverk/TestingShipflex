@@ -2,7 +2,6 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.List;
 
 //what to do?
 //meerdere soorten boten? elk boot andere opties? class boot?
@@ -870,6 +869,8 @@ public class Main {
 
         ArrayList<Onderdelen> brandstofTanken = new ArrayList<Onderdelen>();
         optieLijst.initialiseerBrandstofTank(brandstofTanken);
+         ArrayList<Extras> extra = new ArrayList<Extras>();
+        optieLijst.initialiseerExtra(extra);
 
         System.out.println("Navigatie Systemen:");
         for (Onderdelen onderdeel : navigatieSystemen) {
@@ -888,6 +889,10 @@ public class Main {
 
         System.out.println("Brandstof Tanken:");
         for (Onderdelen onderdeel : brandstofTanken) {
+            System.out.println("- " + onderdeel.getNaam());
+        }
+             System.out.println("Extra:");
+        for (Onderdelen onderdeel : extra) {
             System.out.println("- " + onderdeel.getNaam());
         }
     }
