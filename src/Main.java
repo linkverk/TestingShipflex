@@ -2,7 +2,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.List;
+
 
 //what to do?
 //meerdere soorten boten? elk boot andere opties? class boot?
@@ -535,7 +535,7 @@ public class Main {
     }
 
 
-    public static void scheepsBouwerMenu(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
+   public static void scheepsBouwerMenu(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Kies voor 1 van de opties:");
         System.out.println("1. Maak een offerte");
@@ -549,36 +549,54 @@ public class Main {
         System.out.println("9. Log uit");
 
         int keuze = scanner.nextInt();
-        if (keuze == 1) {
+        switch (keuze){
+
+            case 1:
+
             offerteMaker(milieuKortingen, boten, jouGebruiker, totaal, klant, onderdelen, soortOnderdelens, klanten, gebruikers);
-        }
-        if (keuze == 2) {
+            break;
+
+            case 2:
+
             lijstOptiesScheepsBouwer(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
-        }
-        if (keuze == 3) {
+            break;
+            case 3:
+
             kiesKlantkorting(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
-        }
-        if (keuze == 4) {
+            break;
+
+            case 4:
+
             voegMilieukorting(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
-        }
-        if (keuze == 5) {
+            break;
+            case 5:
+
             maakNieuweKlantType(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
-        }
+            break;
 
-        if (keuze == 6) {
+            case 6:
+
             voegPrijzenOnderdelen(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
-        }
-        if (keuze == 7) {
+            break;
+            case 7:
+
             voegNieuweOnderdelen(milieuKortingen, onderdelen, soortOnderdelens);
-        }
-        if (keuze == 8) {
+            break;
+            case 8:
+
             onderdelenVoegMilieukortingToe(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
+            break;
 
-        }
-        if (keuze == 9) {
+            case 9:
+
             login(milieuKortingen, boten, gebruikers, klant, klanten, totaal, onderdelen, soortOnderdelens);
+            break;
 
-
+            default:
+                System.out.println("Ongeldige keuze, probeer nog een keer.");
+                break;
+        }
+    }
         }
     }
     public static void offerteMaker(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<Onderdelen> selectedOnderdelen, ArrayList<SoortOnderdelen> categorien, ArrayList<KlantType> klantTypes, ArrayList<Gebruiker> gebruikers) {
@@ -835,74 +853,42 @@ public class Main {
         scheepsBouwerMenu(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
     }
 
-    public static void lijstOpties(ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
+   public static void lijstOpties(ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
 
-        ArrayList<String> navigatieSystemen = new ArrayList<>();
-        navigatieSystemen.add("GPS Ontvanger");
-        navigatieSystemen.add("Kaartplotter");
-        navigatieSystemen.add("Compass");
-        navigatieSystemen.add("Diepte meter");
-        navigatieSystemen.add("Traagsheidsnavigatie");
+        Main optieLijst = new Main();
 
-        List<String> list = navigatieSystemen;
+        ArrayList<Onderdelen> navigatieSystemen = new ArrayList<Onderdelen>();
+        optieLijst.initialiseerNavigatieSysteem(navigatieSystemen);
 
-        System.out.println("List navigatiesystem: ");
-        System.out.println();
-        for (String item : list) {
-            System.out.println("-" + item);
+        ArrayList<Onderdelen> hout = new ArrayList<Onderdelen>();
+        optieLijst.initialiseerHout(hout);
+
+        ArrayList<Onderdelen> motors = new ArrayList<Onderdelen>();
+        optieLijst.initialiseerMotor(motors);
+
+        ArrayList<Onderdelen> brandstofTanken = new ArrayList<Onderdelen>();
+        optieLijst.initialiseerBrandstofTank(brandstofTanken);
+
+        System.out.println("Navigatie Systemen:");
+        for (Onderdelen onderdeel : navigatieSystemen) {
+            System.out.println("- " + onderdeel.getNaam());
         }
-        System.out.println();
 
-        ArrayList<String> houten = new ArrayList<>();
-        houten.add("Iroko");
-        houten.add("Mahonie");
-        houten.add("Oak");
-        houten.add("Plantage teak");
-        houten.add("Padoekes");
-        houten.add("Marple");
-        houten.add("Essen");
-        houten.add("Afzelia");
-
-        List<String> list1 = houten;
-
-        System.out.println("List hout: ");
-        System.out.println();
-        for (String item1 : list1) {
-            System.out.println("-" + item1);
+        System.out.println("Hout:");
+        for (Onderdelen onderdeel : hout) {
+            System.out.println("- " + onderdeel.getNaam());
         }
-        System.out.println();
 
-        ArrayList<String> motors = new ArrayList<>();
-        motors.add("Elektrische binnenboord motor");
-        motors.add("Elektrische buitenboord motor");
-        motors.add("Diesel binnenboord motor");
-        motors.add("Diesel buitenboord motor");
-
-        List<String> list2 = motors;
-
-        System.out.println("List motors: ");
-        System.out.println();
-        for (String item2 : list2) {
-            System.out.println("-" + item2);
+        System.out.println("Motors:");
+        for (Onderdelen onderdeel : motors) {
+            System.out.println("- " + onderdeel.getNaam());
         }
-        System.out.println();
 
-        ArrayList<String> brandstofTanken = new ArrayList<>();
-        brandstofTanken.add("Standaard tank");
-        brandstofTanken.add("Groot tank");
-        brandstofTanken.add("Extra groot tank");
-        brandstofTanken.add("Jerrycan");
-
-        List<String> list3 = brandstofTanken;
-
-        System.out.println("List brandstofTank: ");
-        System.out.println();
-        for (String item3 : list3) {
-            System.out.println("-" + item3);
-
+        System.out.println("Brandstof Tanken:");
+        for (Onderdelen onderdeel : brandstofTanken) {
+            System.out.println("- " + onderdeel.getNaam());
         }
     }
-
 
     public static void voegMilieukorting(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> categorien, ArrayList<Gebruiker> gebruikers) {
        Scanner scanner = new Scanner(System.in);
