@@ -1,4 +1,5 @@
 
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,7 +11,7 @@ import java.util.Scanner;
 //in offerte maker coderen dat als er geen prijs voor een onderdeel is je gelijk daar er één kan toevoegen
 //netjes offerte uitprinten
 
-public class Main {
+    public class Main {
 
 
 
@@ -579,7 +580,7 @@ public class Main {
                 break;
             case 7:
 
-                voegNieuweOnderdelen(milieuKortingen, onderdelen, soortOnderdelens);
+                voegNieuweOnderdelen(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
                 break;
             case 8:
 
@@ -634,7 +635,7 @@ public class Main {
         System.out.println("Wat voor boot wilt u maken?");
         for (Boot boot : boten) {
             int i = 1;
-            System.out.println(i + " " + boot.getNaam());
+            System.out.println((i) + " " + boot.getNaam());
             i++;
         }
         int kiesBoot = scanner.nextInt();
@@ -646,7 +647,7 @@ public class Main {
             System.out.println("Voor welke soort onderdelen wilt u kiezen?:");
             for (int i = 0; i < gekozenBoot.getCategorien().size(); i++) {
                 //print catogorien
-                System.out.println((i + 1) + ". " + gekozenBoot.getCategorien().get(i).soortOnderdeel);
+                System.out.println((i + 1) + ". " + gekozenBoot.getCategorien().get(i).naam);
             }
 
             int selectedCategoryIndex = scanner.nextInt() - 1;
@@ -801,14 +802,21 @@ public class Main {
 
     public static void voegPrijzenOnderdelen(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
         Scanner scanner = new Scanner(System.in);
-        for (SoortOnderdelen soort : soortOnderdelens) {
+
+        for(Boot boot: boten){
             int i = 1;
-            System.out.println(i + ". " + soort.soortOnderdeel);
+            System.out.println((i) + " " + boot.getNaam());
+        }
+        int keuzeBoot = scanner.nextInt() - 1;
+        Boot gekozenBoot = boten.get(keuzeBoot);
+        for (SoortOnderdelen soort : gekozenBoot.getCategorien()) {
+            int i = 1;
+            System.out.println(i + ". " + soort.naam);
             i++;
         }
         System.out.print("Voor welk soort onderdeel wilt u een prijs toevoegen?");
         int keuze = scanner.nextInt() - 1;
-        for (Onderdelen onderdeel : soortOnderdelens.get(keuze).getOnderdelen()) {
+        for (Onderdelen onderdeel : gekozenBoot.getCategorien().get(keuze).getOnderdelen()) {
             int i = 1;
             if (onderdeel.getPrijs() == 0) {
                 System.out.println(i + ". " + onderdeel.getNaam());
@@ -820,12 +828,12 @@ public class Main {
         }
         int keuze2 = scanner.nextInt() - 1;
         System.out.println("Kies een onderdeel");
-        System.out.println("U heeft gekozen voor " + soortOnderdelens.get(keuze).getOnderdelen().get(keuze2).getNaam());
-        System.out.println("Huidige prijs: " + soortOnderdelens.get(keuze).getOnderdelen().get(keuze2).getPrijs());
+        System.out.println("U heeft gekozen voor " + gekozenBoot.getCategorien().get(keuze).getOnderdelen().get(keuze2).getNaam());
+        System.out.println("Huidige prijs: " + gekozenBoot.getCategorien().get(keuze).getOnderdelen().get(keuze2).getPrijs());
         System.out.print("Kies een nieuwe prijs:");
         double nieuwePrijs = scanner.nextInt();
 
-        soortOnderdelens.get(keuze).getOnderdelen().get(keuze2).setPrijs(nieuwePrijs);
+        gekozenBoot.getCategorien().get(keuze).getOnderdelen().get(keuze2).setPrijs(nieuwePrijs);
         System.out.println("Wilt u nog andere prijzen toevoegen?");
         System.out.println("Type 1 om door te gaan");
         System.out.println("Type 2 om terug naar het menu te gaan");
@@ -971,9 +979,27 @@ public class Main {
         scheepsBouwerMenu(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
     }
 
-    public static void voegNieuweOnderdelen(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens) {
-    }
-
+        public static void voegNieuweOnderdelen(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
+            Scanner scanner = new Scanner(System.in);
+        for (Boot boot : boten) {
+                int i = 1;
+                System.out.println((i) + " " + boot.getNaam());
+            }
+            System.out.println("Kies een boot");
+            int keuze1 = scanner.nextInt() - 1;
+            Boot gekozenBoot = boten.get(keuze1);
+            for(SoortOnderdelen soort : gekozenBoot.getCategorien()){
+                System.out.println(soort.naam);
+            }
+            System.out.println("Kies een categorie: ");
+            int keuze2 = scanner.nextInt() - 1;
+            SoortOnderdelen gekozenCategorie = gekozenBoot.getCategorien().get(keuze2);
+                    scanner.nextLine();
+                    System.out.println("Kies een naam voor het nieuwe onderdeel");
+            String nieuweOnderdeel = scanner.nextLine();
+            gekozenCategorie.onderdelen.add(new Onderdelen(nieuweOnderdeel));
+            scheepsBouwerMenu(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
+        }
     public static void maakNieuweKlantType(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Wilt u een nieuwe klanttype aanmaken? J/N");
@@ -1056,6 +1082,7 @@ public class Main {
 
     }
 }
+
 
 
 
