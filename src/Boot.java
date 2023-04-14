@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-abstract class Boot {
+class Boot {
     ArrayList<SoortOnderdelen> categorien;
 
     String naam;
@@ -19,40 +19,4 @@ abstract class Boot {
         return categorien;
     }
 
-}
-
-class Jacht extends Boot {
-
-    Jacht(String naam, ArrayList<SoortOnderdelen> categorien) {
-        super(naam, categorien);
-    }
-}
-
-
-class SpeedBoot extends Boot {
-
-    SpeedBoot(String naam, ArrayList<SoortOnderdelen> categorien) {
-        super(naam, categorien);
-    }
-}
-
-class Ferry extends Boot {
-
-    Ferry(String naam, ArrayList<SoortOnderdelen> categorien) {
-        super(naam, categorien);
-    }
-}
-
-class WoonBoot extends Boot {
-
-    WoonBoot(String naam, ArrayList<SoortOnderdelen> categorien) {
-        super(naam, categorien);
-    }
-}
-
-class ContainerSchip extends Boot {
-
-    ContainerSchip(String naam, ArrayList<SoortOnderdelen> categorien) {
-        super(naam, categorien);
-    }
 }
