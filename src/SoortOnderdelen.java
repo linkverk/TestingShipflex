@@ -12,24 +12,15 @@ class SoortOnderdelen {
         this.naam = soortOnderdeel;
     }
 
-    SoortOnderdelen(String soortOnderdeel, ArrayList<Onderdelen> onderdelen) {
-        this.naam = soortOnderdeel;
-        this.onderdelen = onderdelen ;
 
-    }
 
-    public SoortOnderdelen() {
-
-    }
 
 
 
   public ArrayList<SoortOnderdelen> getCategorien(){
         return categorien;
   }
-  public void setSoortOnderdelen(ArrayList<SoortOnderdelen> categorien){
-        this.categorien = categorien;
-    }
+
 
     public void setOnderdelen(ArrayList<Onderdelen> onderdelen) {
         this.onderdelen = onderdelen;
@@ -48,66 +39,3 @@ class SoortOnderdelen {
     }
 }
 
-class JachtOnderdelen extends SoortOnderdelen {
-
-
-    JachtOnderdelen (String naam){
-
-    }
-
-
-
-}
-
-class SpeedBootOnderdelen extends SoortOnderdelen {
-
-
-    SpeedBootOnderdelen(String soortOnderdeel) {
-        super(soortOnderdeel);
-    }
-
-
-    public SpeedBootOnderdelen() {
-
-    }
-
-}
-
-class FerryOnderdelen extends SoortOnderdelen {
-
-
-    FerryOnderdelen(String soortOnderdeel) {
-        super(soortOnderdeel);
-    }
-
-
-    public FerryOnderdelen() {
-
-    }
-
-}
-
-class ContainerSchipOnderdelen extends SoortOnderdelen {
-
-    ContainerSchipOnderdelen(String soortOnderdeel) {
-        super(soortOnderdeel);
-    }
-
-    public ContainerSchipOnderdelen() {
-
-    }
-
-}
-
-
-class WoonBootOnderdelen extends SoortOnderdelen {
-
-    WoonBootOnderdelen(String soortOnderdeel) {
-        super(soortOnderdeel);
-    }
-
-    public WoonBootOnderdelen() {
-
-    }
-
-}
