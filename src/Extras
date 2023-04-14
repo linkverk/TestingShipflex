@@ -1,0 +1,5 @@
+class Extras extends Onderdelen {
+    Extras(String naam) {
+        super(naam);
+    }
+}
