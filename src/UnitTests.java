@@ -5,7 +5,10 @@ import java.util.ArrayList;
 
 class UnitTests {
 
+    @Test
+    public  void checkLogin() {
 
+    }
     @Test
 
     public void checkBerekeningKlantKortingOpOfferte() {
