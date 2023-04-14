@@ -6,7 +6,6 @@ class Gebruiker {
 
     protected String bootnaam;
 
-    protected Offerte offerte;
 
     Gebruiker(String gebruikernr) {
         this.gebruikernr = gebruikernr;
@@ -14,11 +13,6 @@ class Gebruiker {
     }
 
 
-    Gebruiker(String gebruikernr, KlantType klanttype) {
-        super();
-        this.klanttype = klanttype;
-
-    }
 
     public void setBootNaam(Boot boot) {
         this.bootnaam = boot.getNaam();
@@ -36,9 +30,7 @@ class Gebruiker {
         return totaal;
     }
 
-    public void setGebruikernr() {
-        this.gebruikernr = gebruikernr;
-    }
+
 
     public String getGebruikernaam() {
         return gebruikernr;
