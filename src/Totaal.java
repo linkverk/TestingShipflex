@@ -3,11 +3,9 @@ import java.util.ArrayList;
 class Totaal {
     protected KlantType klantType;
     protected double totaalprijs;
-    protected SoortOnderdelen soortOnderdelen;
+
     protected ArrayList<Onderdelen> onderdelen;
-    protected Onderdelen onderdeel;
-    protected Boot boot;
-    protected MilieuKorting milieuKortingen;
+
 
     Totaal() {
 
