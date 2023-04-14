@@ -1,24 +1,22 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+
 
 class MilieuKorting {
     double kortingen;
     String naam;
 
-    ArrayList<MilieuKorting> milieuKortingen;
+    String omschrijving;
 
     MilieuKorting(String naam) {
         this.naam = naam;
     }
 
-    public MilieuKorting() {
 
+    public void setOmschrijving(String omschrijving){
+        this.omschrijving = omschrijving;
     }
-
-    public void setNaam(String naam) {
-        this.naam = naam;
+    public String getOmschrijving(){
+        return omschrijving;
     }
-
     public String getNaam() {
         return naam;
     }
