@@ -8,79 +8,99 @@ import java.util.Scanner;
     public static void main(String[] args) {
 
         ArrayList<MilieuKorting> milieuKortingen = new ArrayList<>();
-        milieuKortingen.add(new MilieuKorting("1"));
-        milieuKortingen.add(new MilieuKorting("2"));
-        milieuKortingen.add(new MilieuKorting("3"));
-        milieuKortingen.add(new MilieuKorting("4"));
+        milieuKortingen.add(new MilieuKorting("Lager CO2 uitstoot"));
+        milieuKortingen.add(new MilieuKorting("Duurzaam"));
+        milieuKortingen.add(new MilieuKorting("Elektrisch onderdeel"));
+
 
         ArrayList<SoortOnderdelen> jachtOnderdelen = new ArrayList<>();
-         SoortOnderdelen jacht1 = new SoortOnderdelen("Romp");
-        initialiseerJachtOnderdelenRomp(jacht1);
-        SoortOnderdelen jacht2 = new SoortOnderdelen("Hout");
-        initialiseerHout(jacht2);
-        SoortOnderdelen jacht3 = new SoortOnderdelen("Dek");
-        initialiseerJachtOnderdelenDek(jacht3) ;
-        SoortOnderdelen jacht4 = new SoortOnderdelen("Stuur Systeem");
-       initialiseerJachtOnderdelenStuurSysteem(jacht4);
-        SoortOnderdelen jacht5 = new SoortOnderdelen("Motor");
-        initialiseerJachtOnderdelenMotor(jacht5);
-        initialiseerCategorienJachtOnderdelen(jachtOnderdelen, jacht1, jacht2, jacht3,  jacht4,  jacht5);
+         SoortOnderdelen jachtRomp = new SoortOnderdelen("Romp");
+        initialiseerJachtOnderdelenRomp(jachtRomp);
+        SoortOnderdelen jachtVloer = new SoortOnderdelen("Interieur Vloer");
+        initialiseerVloerJacht(jachtVloer);
+        SoortOnderdelen jachtDek = new SoortOnderdelen("Dek");
+        initialiseerJachtOnderdelenDek(jachtDek) ;
+        SoortOnderdelen jachtStuur = new SoortOnderdelen("Stuur Systeem");
+       initialiseerJachtOnderdelenStuurSysteem(jachtStuur);
+        SoortOnderdelen jachtMotor = new SoortOnderdelen("Motor");
+        initialiseerJachtOnderdelenMotor(jachtMotor);
+        SoortOnderdelen jachtBrandstofTank = new SoortOnderdelen("Brandstof Tank");
+        initialiseerBrandstofTankJacht(jachtBrandstofTank);
+        SoortOnderdelen jachtNavigatieSysteem = new SoortOnderdelen("NavigatieSysteem");
+        initialiseerNavigatieSysteemJacht (jachtNavigatieSysteem);
+
+        initialiseerCategorienJachtOnderdelen(jachtOnderdelen, jachtRomp, jachtVloer, jachtDek,  jachtStuur,  jachtMotor, jachtBrandstofTank, jachtNavigatieSysteem);
         Boot jacht = new Boot("Jacht",jachtOnderdelen);
 
         ArrayList<SoortOnderdelen> ferryOnderdelen = new ArrayList<>();
-       SoortOnderdelen ferry1 = new SoortOnderdelen("Romp");
-        initialiseerFerryOnderdelenRomp(ferry1);
-        SoortOnderdelen ferry2 = new SoortOnderdelen("Hout");
-      initialiseerFerryOnderdelen2(ferry2);
-        SoortOnderdelen ferry3 = new SoortOnderdelen("Dek");
-        initialiseerFerryOnderdelen3(ferry3);
-        SoortOnderdelen ferry4 = new SoortOnderdelen("Stuur Systeem");
+       SoortOnderdelen ferryRomp = new SoortOnderdelen("Romp");
+        initialiseerFerryOnderdelenRomp(ferryRomp);
+        SoortOnderdelen ferryDek = new SoortOnderdelen("Dek");
+        SoortOnderdelen ferryVloer = new SoortOnderdelen("Interieur vloer");
+      initialiseerFerryOnderdelenDek(ferryDek);
 
-         initialiseerFerryOnderdelen4(ferry4);
-        SoortOnderdelen ferry5 = new SoortOnderdelen("Motor");
-         initialiseerFerryOnderdelen5(ferry5);
-        initialiseerCategorienFerryOnderdelen( ferryOnderdelen, ferry1, ferry2, ferry3, ferry4, ferry5);
+        initialiseerVloerFerry(ferryVloer);
+        SoortOnderdelen ferryStuur = new SoortOnderdelen("Stuur Systeem");
+         initialiseerFerryOnderdelenStuurSysteem(ferryStuur);
+        SoortOnderdelen ferryMotor = new SoortOnderdelen("Motor");
+         initialiseerFerryOnderdelenMotor(ferryMotor);
+        SoortOnderdelen ferryBrandstofTank = new SoortOnderdelen("Brandstof Tank");
+        initialiseerBrandstofTankFerry(ferryBrandstofTank);
+        SoortOnderdelen ferryNavigatieSysteem = new SoortOnderdelen("NavigatieSysteem");
+        initialiseerNavigatieSysteemFerry (ferryNavigatieSysteem);
+        initialiseerCategorienFerryOnderdelen( ferryOnderdelen, ferryRomp, ferryVloer, ferryDek, ferryStuur, ferryMotor, ferryNavigatieSysteem, ferryBrandstofTank);
         Boot ferry = new Boot("Ferry",ferryOnderdelen );
 
         ArrayList<SoortOnderdelen> woonBootOnderdelen = new ArrayList<>();
-        SoortOnderdelen woonBoot1 = new SoortOnderdelen("Romp");
-         initialiseerWoonBootOnderdelen1(woonBoot1);
-        SoortOnderdelen woonBoot2 = new SoortOnderdelen("Hout");
-        initialiseerWoonBootOnderdelen2(woonBoot2);
-        SoortOnderdelen woonBoot3 = new SoortOnderdelen("Dek");
-        initialiseerWoonBootOnderdelen3(woonBoot3);
-        SoortOnderdelen woonBoot4 = new SoortOnderdelen("Stuur Systeem");
-        initialiseerWoonBootOnderdelen4(woonBoot4);
-        SoortOnderdelen woonBoot5 = new SoortOnderdelen("Motor");
-       initialiseerWoonBootOnderdelen5(woonBoot5);
-        initialiseerCategorienWoonBootOnderdelen( woonBootOnderdelen, woonBoot1, woonBoot2, woonBoot3, woonBoot4, woonBoot5);
+        SoortOnderdelen woonBootRomp = new SoortOnderdelen("Romp");
+         initialiseerWoonBootOnderdelenRomp(woonBootRomp);
+        SoortOnderdelen woonBootVloer = new SoortOnderdelen("Interieur Vloer");
+        initialiseerVloerWoonBoot(woonBootVloer);
+        SoortOnderdelen woonBootDek = new SoortOnderdelen("Dek");
+        initialiseerWoonBootOnderdelenDek(woonBootDek);
+        SoortOnderdelen woonBootStuur = new SoortOnderdelen("Stuur Systeem");
+        initialiseerWoonBootOnderdelenStuur(woonBootStuur);
+        SoortOnderdelen woonBootMotor = new SoortOnderdelen("Motor");
+       initialiseerWoonBootOnderdelenMotor(woonBootMotor);
+        SoortOnderdelen woonBootBrandstofTank = new SoortOnderdelen("Brandstof Tank");
+        initialiseerBrandstofTankWoonBoot(woonBootBrandstofTank);
+        SoortOnderdelen woonBootNavigatieSysteem = new SoortOnderdelen("NavigatieSysteem");
+        initialiseerNavigatieSysteemWoonBoot (woonBootNavigatieSysteem);
+        initialiseerCategorienWoonBootOnderdelen( woonBootOnderdelen, woonBootRomp, woonBootVloer, woonBootDek, woonBootStuur, woonBootMotor, woonBootNavigatieSysteem, woonBootBrandstofTank);
         Boot woonBoot = new Boot("WoonBoot",woonBootOnderdelen );
+
         ArrayList<SoortOnderdelen> speedBootOnderdelen = new ArrayList<>();
-        SoortOnderdelen speedBoot1 = new SoortOnderdelen("Romp");
-        initialiseerSpeedBootOnderdelen1(speedBoot1);
-        SoortOnderdelen speedBoot2 = new SoortOnderdelen("Hout");
-     initialiseerSpeedBootOnderdelen2(speedBoot2);
-        SoortOnderdelen speedBoot3 = new SoortOnderdelen("Dek");
-       initialiseerSpeedBootOnderdelen3(speedBoot3);
-        SoortOnderdelen speedBoot4 = new SoortOnderdelen("Stuur Systeem");
-        initialiseerSpeedBootOnderdelen4(speedBoot4);
-        SoortOnderdelen speedBoot5 = new SoortOnderdelen("Motor" );
-        initialiseerSpeedBootOnderdelen5(speedBoot5);
-        initialiseerCategorienSpeedBootOnderdelen(speedBootOnderdelen, speedBoot1, speedBoot2,  speedBoot3, speedBoot4, speedBoot5);
+        SoortOnderdelen speedBootRomp = new SoortOnderdelen("Romp");
+        initialiseerSpeedBootOnderdelenRomp(speedBootRomp);
+
+        SoortOnderdelen speedBootDek = new SoortOnderdelen("Dek");
+       initialiseerSpeedBootOnderdelenDek(speedBootDek);
+        SoortOnderdelen speedBootStuur = new SoortOnderdelen("Stuur Systeem");
+        initialiseerSpeedBootOnderdelenStuur(speedBootStuur);
+        SoortOnderdelen speedBootMotor = new SoortOnderdelen("Motor" );
+        initialiseerSpeedBootOnderdelenMotor(speedBootMotor);
+        SoortOnderdelen speedBootBrandstofTank = new SoortOnderdelen("Brandstof Tank");
+        initialiseerBrandstofTankSpeedBoot(speedBootBrandstofTank);
+        SoortOnderdelen speedBootNavigatieSysteem = new SoortOnderdelen("NavigatieSysteem");
+        initialiseerNavigatieSysteemSpeedBoot (speedBootNavigatieSysteem);
+        initialiseerCategorienSpeedBootOnderdelen(speedBootOnderdelen, speedBootRomp,  speedBootDek, speedBootStuur, speedBootMotor, speedBootNavigatieSysteem, speedBootBrandstofTank);
         Boot speedBoot = new Boot ("Speedboot",speedBootOnderdelen );
 
         ArrayList<SoortOnderdelen> containerOnderdelen = new ArrayList<>();
-        SoortOnderdelen container1 = new SoortOnderdelen("Romp");
-         initialiseerContainerOnderdelen1(container1);
-        SoortOnderdelen container2 = new SoortOnderdelen("Hout");
-         initialiseerContainerOnderdelen2(container2);
-        SoortOnderdelen container3 = new SoortOnderdelen("Dek");
-        initialiseerContainerOnderdelen3(container3);
-        SoortOnderdelen container4 = new SoortOnderdelen("Stuur Systeem");
-        initialiseerContainerOnderdelen4(container4);
-        SoortOnderdelen container5 = new SoortOnderdelen("Motor");
-        initialiseerContainerOnderdelen5(container5);
-        initialiseerCategorienContainerOnderdelen(containerOnderdelen, container1, container2, container3, container4, container5);
+        SoortOnderdelen containerRomp = new SoortOnderdelen("Romp");
+         initialiseerContainerOnderdelenRomp(containerRomp);
+
+        SoortOnderdelen containerDek = new SoortOnderdelen("Dek");
+        initialiseerContainerOnderdelenDek(containerDek);
+        SoortOnderdelen containerStuur = new SoortOnderdelen("Stuur Systeem");
+        initialiseerContainerOnderdelenStuur(containerStuur);
+        SoortOnderdelen containerMotor = new SoortOnderdelen("Motor");
+        initialiseerContainerOnderdelenMotor(containerMotor);
+        SoortOnderdelen containerBrandstofTank = new SoortOnderdelen("Brandstof Tank");
+        initialiseerBrandstofTankContainer(containerBrandstofTank);
+        SoortOnderdelen containerNavigatieSysteem = new SoortOnderdelen("NavigatieSysteem");
+        initialiseerNavigatieSysteemContainer (containerNavigatieSysteem);
+        initialiseerCategorienContainerOnderdelen(containerOnderdelen, containerRomp, containerDek, containerStuur, containerMotor, containerNavigatieSysteem, containerBrandstofTank);
         Boot container = new Boot("Containerschip",containerOnderdelen );
 
 
@@ -103,48 +123,16 @@ import java.util.Scanner;
         initialiseerKlanttype(klantTypes);
         //Zet Klanttypes particulieren, bedrijven en overheden in het systeem
 
-        SoortOnderdelen navigatieSysteem = new SoortOnderdelen("Navigatiesysteem");
-        //maakt categorie Navigatiesysteem
-        ArrayList<Onderdelen> navigatieSystemen = new ArrayList<>();
-        initialiseerNavigatieSysteem(navigatieSystemen);
-        //initialiseerd navigatiesystemen in onderdelen
-        navigatieSysteem.setOnderdelen(navigatieSystemen);
-        //zet alle navigatiesystemen in categorie navigatiesysteem
-
-
-        //SoortOnderdelen hout = new SoortOnderdelen("Hout");
-        //ArrayList<OnderdeelEigenSchappen> houten = new ArrayList<>();
-        //initialiseerHout(houten);
-        //hout.setOnderdelen(houten);
-
-        SoortOnderdelen motor = new SoortOnderdelen("Motor");
-        //maakt categorie Motor
-        ArrayList<Onderdelen> motors = new ArrayList<>();
-        initialiseerMotor(motors);
-        //initialiseerd motors in onderdelen
-        motor.setOnderdelen(motors);
-        //zet alle motors in categorie motor
-
-
-        SoortOnderdelen brandStofTank = new SoortOnderdelen("Brandstoftank");
-        //maakt categorie Brandstoftank
-        ArrayList<Onderdelen> brandstofTanken = new ArrayList<>();
-        initialiseerBrandstofTank(brandstofTanken);
-        //initialiseerd brandstoftanken in onderdelen
-        brandStofTank.setOnderdelen(brandstofTanken);
-        //zet alle brandstofTanks in categorie brandstoftank
-
         SoortOnderdelen extra = new SoortOnderdelen("Extras");
-        ArrayList<Extras> extras = new ArrayList<>();
+        ArrayList<Onderdelen> extras = new ArrayList<>();
         initialiseerExtra(extras);
         extra.setExtras(extras);
 
-        ArrayList<SoortOnderdelen> categorien = new ArrayList<>();
-        initialiseerCategorien(categorien, navigatieSysteem, motor, brandStofTank,  extra);
+
         ArrayList<Onderdelen> selectedOnderdelen = new ArrayList<>();
         //zet categorien die hierboven geinitialiseerd zijn in een arraylist.
         KlantType klant = new KlantType();
-        login(milieuKortingen, boten, gebruikers, klant, klantTypes, totaal, selectedOnderdelen, categorien);
+        login(milieuKortingen, boten, gebruikers, klant, klantTypes, totaal, selectedOnderdelen, extra);
 
 
     }
@@ -152,7 +140,7 @@ import java.util.Scanner;
 
 
 
-    public static void login(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, ArrayList<Gebruiker> gebruikers, KlantType klant, ArrayList<KlantType> klantTypes, Totaal totaal, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens) {
+    public static void login(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, ArrayList<Gebruiker> gebruikers, KlantType klant, ArrayList<KlantType> klantTypes, Totaal totaal, ArrayList<Onderdelen> onderdelen, SoortOnderdelen soortOnderdelens) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("***********************************");
         System.out.println("*                                 *");
@@ -185,7 +173,7 @@ import java.util.Scanner;
         }
     }
 
-    public static void klantMenu(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, ArrayList<Gebruiker> gebruikers, KlantType klant, ArrayList<KlantType> klantTypes, Totaal totaal, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens) {
+    public static void klantMenu(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, ArrayList<Gebruiker> gebruikers, KlantType klant, ArrayList<KlantType> klantTypes, Totaal totaal, ArrayList<Onderdelen> onderdelen, SoortOnderdelen soortOnderdelens) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("========== MENU ==========");
         System.out.println("1. Zie offerte");
@@ -222,31 +210,30 @@ import java.util.Scanner;
                 System.out.println("Ongeldige keuze. Probeer het nog eens");
         }}
     }
-    public static void zieOfferte(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, ArrayList<Gebruiker> gebruikers, KlantType klant, ArrayList<KlantType> klantTypes, Totaal totaal, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens) {
+    public static void zieOfferte(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, ArrayList<Gebruiker> gebruikers, KlantType klant, ArrayList<KlantType> klantTypes, Totaal totaal, ArrayList<Onderdelen> onderdelen, SoortOnderdelen soortOnderdelens) {
         System.out.println("De offerte:");
         System.out.println();
         System.out.println();
         System.out.println(jouGebruiker.getBootNaam());
-        System.out.println("--------------------------------------------------");
-        System.out.printf("| %-25s | %10s | %20s |%n", "Naam", "Prijs", "Milieukorting");
+        System.out.println("---------------------------------------------------------------------------------------------");
+        System.out.printf("| %-30s | %20s | %30s |%n", "Naam", "Prijs", "Milieukorting");
         System.out.println("--------------------------------------------------");
 
         for (Onderdelen onderdeel : jouGebruiker.getTotaal().onderdelen) {
             if (onderdeel.milieuKorting == null) {
-                System.out.printf("| %-25s | %10s | %20s |%n", onderdeel.getNaam(), onderdeel.getPrijs(), "");
+                System.out.printf("| %-25s | %20s | %20s |%n", onderdeel.getNaam(), onderdeel.getPrijs(), "geen");
             } else {
-                System.out.printf("| %-25s | %10s | %20s |%n", onderdeel.getNaam(), onderdeel.getPrijs(), onderdeel.milieuKorting.getNaam() + " (" + onderdeel.milieuKorting.getKortingen() + ")");
+                System.out.printf("| %-25s | %20s | %20s |%n", onderdeel.getNaam(), onderdeel.getPrijs(), onderdeel.milieuKorting.getNaam() + " (" + onderdeel.milieuKorting.getKortingen() + "%)");
             }
         }
-        System.out.println("--------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------------------------");
 
-        System.out.println("Totaalprijs:" + jouGebruiker.getTotaal().getTotaalPrijs());
-        System.out.print(jouGebruiker.getKlanttype().getNaam() + "   " + jouGebruiker.getKlanttype().getKorting());
+        System.out.println("Totaalprijs: " + jouGebruiker.getTotaal().getTotaalPrijs());
         klantMenu(milieuKortingen, boten, jouGebruiker, gebruikers, klant, klantTypes, totaal, onderdelen, soortOnderdelens);
 
     }
-    public static void ziePrijsopgave(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, ArrayList<Gebruiker> gebruikers, KlantType klant, ArrayList<KlantType> klantTypes, Totaal totaal, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens) {
-
+    public static void ziePrijsopgave(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, ArrayList<Gebruiker> gebruikers, KlantType klant, ArrayList<KlantType> klantTypes, Totaal totaal, ArrayList<Onderdelen> onderdelen, SoortOnderdelen soortOnderdelens) {
+        System.out.println("De prijsopgave");
         System.out.println(jouGebruiker.getBootNaam());
         System.out.println();
         for (Onderdelen onderdeel : jouGebruiker.getTotaal().onderdelen) {
@@ -254,6 +241,8 @@ import java.util.Scanner;
 
 
         }
+        System.out.println();
+
         System.out.println("Totaalprijs:" + jouGebruiker.getTotaal().getTotaalPrijs());
         klantMenu(milieuKortingen, boten, jouGebruiker, gebruikers, klant, klantTypes, totaal, onderdelen, soortOnderdelens);
 
@@ -263,7 +252,7 @@ import java.util.Scanner;
 
 
 
-    public static void zieLijstopties(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, ArrayList<Gebruiker> gebruikers, KlantType klant, ArrayList<KlantType> klantTypes, Totaal totaal, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens) {
+    public static void zieLijstopties(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, ArrayList<Gebruiker> gebruikers, KlantType klant, ArrayList<KlantType> klantTypes, Totaal totaal, ArrayList<Onderdelen> onderdelen, SoortOnderdelen extras) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Onderdelen> gekozenOnderdelen= new ArrayList<>();
         int i = 0;
@@ -283,9 +272,9 @@ import java.util.Scanner;
         }
         System.out.println("Wat voor categorie onderdelen?");
         int keuze2 = scanner.nextInt();
-        SoortOnderdelen categorie = gekozenBoot.categorien.get(keuze2 - 1);
+        SoortOnderdelen gekozenCategorie = gekozenBoot.categorien.get(keuze2 - 1);
 i = 0;
-        for(Onderdelen onderdelen1: categorie.getOnderdelen()){
+        for(Onderdelen onderdelen1: gekozenCategorie.getOnderdelen()){
             int loopTel = i += 1;
             System.out.println(loopTel +". Naam: " + onderdelen1.getNaam());
             if (onderdelen1.getPrijs() != 0){
@@ -305,61 +294,80 @@ i = 0;
                     while(keuze3.equals("ja")) {
                         System.out.print("voer de nummer van het onderdeel in:");
                         int keuze4 = scanner.nextInt();
-                        Onderdelen gekozenOnderdeel = categorie.getOnderdelen().get(keuze4 - 1);
+                        Onderdelen gekozenOnderdeel = gekozenCategorie.getOnderdelen().get(keuze4 - 1);
                         gekozenOnderdelen.add(gekozenOnderdeel);
                         i = 0;
-                        for (SoortOnderdelen soortOnderdelen : gekozenBoot.getCategorien()) {
 
-                            int telSoortonderdelen = i += 1;
-                            System.out.println(telSoortonderdelen + ". " + soortOnderdelen.naam);
-                        }
-                        System.out.println("Wat voor categorie onderdelen?");
-                        keuze2 = scanner.nextInt();
-                        categorie = gekozenBoot.categorien.get(keuze2 - 1);
-                        i = 0;
-                        for (Onderdelen onderdelen1 : categorie.getOnderdelen()) {
-                            int loopTel = i += 1;
-                            System.out.println(loopTel + ". Naam: " + onderdelen1.getNaam());
-                            if (onderdelen1.getPrijs() != 0) {
-                                System.out.print("     Prijs: " + onderdelen1.getPrijs());
+                        System.out.println("Wilt u de extra opties zien?");
+                        System.out.println("Type 1 voor extra opties");
+                        System.out.println("Type 2 om door te gaan");
+
+                        int keuzextra = scanner.nextInt();
+                        if (keuzextra == 1) {
+
+                            for (Onderdelen onderdelen1 : extras.getOnderdelen()) {
+                                int telOp = i += 1;
+                                System.out.println(telOp + " " + onderdelen1.getNaam());
                             }
-                            if (onderdelen1.milieuKorting != null) {
-                                System.out.print("     Milieukorting: " + onderdelen1.milieuKorting.getNaam());
-                            }
+                            System.out.println("Selecteer een optie:");
+                            int keuzeExtra = scanner.nextInt();
+                            Onderdelen gekozenExtra = extras.getOnderdelen().get(keuzeExtra);
+                            gekozenOnderdelen.add(gekozenExtra);
                         }
+                 i =0;
+
+                            for (SoortOnderdelen soortOnderdelen : gekozenBoot.getCategorien()) {
+
+                                int telSoortonderdelen = i += 1;
+                                System.out.println(telSoortonderdelen + ". " + soortOnderdelen.naam);
+                            }
+                            System.out.println("Wat voor categorie onderdelen?");
+                            keuze2 = scanner.nextInt();
+                            gekozenCategorie = gekozenBoot.categorien.get(keuze2 - 1);
+                            i = 0;
+                            for (Onderdelen onderdelen1 : gekozenCategorie.getOnderdelen()) {
+                                int loopTel = i += 1;
+                                System.out.println(loopTel + ". Naam: " + onderdelen1.getNaam());
+                                if (onderdelen1.getPrijs() != 0) {
+                                    System.out.println("  Prijs: " + onderdelen1.getPrijs());
+                                }
+                                if (onderdelen1.milieuKorting != null) {
+                                    System.out.print(" Milieukorting: " + onderdelen1.milieuKorting.getNaam());
+                                }
+                            }
                             System.out.println("Wilt u opties in een mandje zetten? ja/nee: ");
                             scanner.nextLine();
-                           String keuzeEinde = scanner.nextLine();
-                           if (keuzeEinde.equals("nee")){
-                               System.out.println("Uw mandje bestaat uit de volgende onderdelen: ");
-
-                               for(Onderdelen onderdelen1: gekozenOnderdelen){
-                                   System.out.println("- " + onderdelen1.getNaam());
-                               }
-                           }
-                        klantMenu(milieuKortingen, boten, jouGebruiker, gebruikers, klant, klantTypes, totaal, onderdelen, soortOnderdelens);
+                            String keuzeEinde = scanner.nextLine();
+                            if (keuzeEinde.equals("nee")) {
+                                System.out.println("Uw mandje bestaat uit de volgende onderdelen: ");
+                                for (Onderdelen onderdelen1 : gekozenOnderdelen) {
+                                    System.out.println("- " + onderdelen1.getNaam());
+                                }
+                            }
                             keuze3 = keuzeEinde;
 
 
+
                     }
+                    klantMenu(milieuKortingen, boten, jouGebruiker, gebruikers, klant, klantTypes, totaal, onderdelen, extras);
 
                     break;
 
                 case "nee":
-                    klantMenu(milieuKortingen, boten, jouGebruiker, gebruikers, klant, klantTypes, totaal, onderdelen, soortOnderdelens);
+                    klantMenu(milieuKortingen, boten, jouGebruiker, gebruikers, klant, klantTypes, totaal, onderdelen, extras);
 
                     break;
 
 
                 default:
                     System.out.println("Ongeldige invoer. Probeer het nog eens");
-                    klantMenu(milieuKortingen, boten, jouGebruiker, gebruikers, klant, klantTypes, totaal, onderdelen, soortOnderdelens);
+                    klantMenu(milieuKortingen, boten, jouGebruiker, gebruikers, klant, klantTypes, totaal, onderdelen, extras);
             }
         }
 
 
 
-    public static void scheepsBouwerMenu(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
+    public static void scheepsBouwerMenu(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, SoortOnderdelen soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
         Scanner scanner = new Scanner(System.in);
         System.out.println();
         System.out.println("========== MENU ==========");
@@ -430,7 +438,7 @@ i = 0;
 
 
 
-    public static void offerteMaker(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<Onderdelen> selectedOnderdelen, ArrayList<SoortOnderdelen> categorien, ArrayList<KlantType> klantTypes, ArrayList<Gebruiker> gebruikers) {
+    public static void offerteMaker(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<Onderdelen> selectedOnderdelen, SoortOnderdelen extras, ArrayList<KlantType> klantTypes, ArrayList<Gebruiker> gebruikers) {
         Scanner scanner = new Scanner(System.in);
         Onderdelen selectedOnderdeel = null;
         SoortOnderdelen selectedCategory = null;
@@ -452,7 +460,7 @@ i = 0;
 
             System.out.println("Ongeldige code");
 
-            offerteMaker(milieuKortingen, boten, jouGebruiker, totaal, klant, selectedOnderdelen, categorien, klantTypes, gebruikers);
+            offerteMaker(milieuKortingen, boten, jouGebruiker, totaal, klant, selectedOnderdelen, extras, klantTypes, gebruikers);
         }
         for (Gebruiker gebruiker : gebruikers) {
             if (gebruikersNaam.equals(gebruiker.getGebruikernaam()) && gebruiker.getKlanttype() == null) {
@@ -496,7 +504,7 @@ i = 0;
             System.out.println("===============================");
             selectedCategory = gekozenBoot.getCategorien().get(selectedCategoryIndex);
 
-            for (SoortOnderdelen soort : checkOfCategorieLeegis) {
+            for (SoortOnderdelen soort :  checkOfCategorieLeegis) {
                 if (selectedCategory == soort) {
                     System.out.println("U heeft al een keer gekozen voor dit soort onderdeel.");
                     System.out.println("Wilt u dit onderdeel vervangen met een ander?. J/N");
@@ -507,12 +515,12 @@ i = 0;
 
                         for (i = 0; i < gekozenBoot.getCategorien().size(); i++) {
                             //print catogorien
-                            System.out.println((i + 1) + ". " + gekozenBoot.getCategorien().get(i).soortOnderdeel);
+                            System.out.println((i + 1) + ". " + gekozenBoot.getCategorien().get(i).naam);
                         }
                         System.out.println("Voor welke soort onderdelen wilt u kiezen?:");
                         selectedCategoryIndex = scanner.nextInt() - 1;
                         selectedCategory = gekozenBoot.getCategorien().get(selectedCategoryIndex);
-                        checkOfCategorieLeegis.add(gekozenBoot.getCategorien().get(selectedCategoryIndex));
+
                         System.out.println("===============================");
 
                     }
@@ -553,7 +561,7 @@ i = 0;
 
             if (selectedCategory.getCategorien() == null) {
 
-                System.out.println();
+
 
                 System.out.println("========== ONDERDELEN ==========");
 
@@ -616,23 +624,23 @@ i = 0;
                         int keuze = scanner.nextInt();
                         switch (keuze) {
                             case 1:
-                                categorien.get(3).getExtras().get(0).setPrijs(250);
-                                selectedOnderdelen.add(categorien.get(3).getExtras().get(0));
+                                extras.getOnderdelen().get(0).setPrijs(250);
+                                selectedOnderdelen.add( extras.getOnderdelen().get(0));
                                 eindigLoop = false;
                                 break;
                             case 2:
-                                categorien.get(3).getExtras().get(1).setPrijs(500);
-                                selectedOnderdelen.add(categorien.get(3).getExtras().get(1));
+                                extras.getOnderdelen().get(1).setPrijs(250);
+                                selectedOnderdelen.add( extras.getOnderdelen().get(1));
                                 eindigLoop = false;
                                 break;
                             case 3:
-                                categorien.get(3).getExtras().get(2).setPrijs(1000);
-                                selectedOnderdelen.add(categorien.get(3).getExtras().get(2));
+                                extras.getOnderdelen().get(2).setPrijs(250);
+                                selectedOnderdelen.add( extras.getOnderdelen().get(2));
                                 eindigLoop = false;
                                 break;
                             case 4:
-                                categorien.get(3).getExtras().get(3).setPrijs(2000);
-                                selectedOnderdelen.add(categorien.get(3).getExtras().get(3));
+                                extras.getOnderdelen().get(3).setPrijs(250);
+                                selectedOnderdelen.add( extras.getOnderdelen().get(3));
                                 eindigLoop = false;
                                 break;
                             default:
@@ -685,12 +693,12 @@ i = 0;
 
         System.out.println("=====================================");
 
-        scheepsBouwerMenu(milieuKortingen, boten, jouGebruiker, totaal, klant, klantTypes, selectedOnderdelen, categorien, gebruikers);
+        scheepsBouwerMenu(milieuKortingen, boten, jouGebruiker, totaal, klant, klantTypes, selectedOnderdelen, extras, gebruikers);
 
 
     }
 
-    public static void voegPrijzenOnderdelen(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
+    public static void voegPrijzenOnderdelen(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, SoortOnderdelen soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
         Scanner scanner = new Scanner(System.in);
 int i = 0;
         for (Boot boot : boten) {
@@ -751,7 +759,7 @@ int i = 0;
         }
 
 
-    public static void lijstOptiesScheepsBouwer(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
+    public static void lijstOptiesScheepsBouwer(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, SoortOnderdelen extras, ArrayList<Gebruiker> gebruikers) {
         Scanner scanner = new Scanner(System.in);
         int i = 0;
         for(Boot boot : boten){
@@ -783,14 +791,31 @@ int i = 0;
             }
 
         }
-        scheepsBouwerMenu(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
+        System.out.println("Wilt u de extra opties zien?");
+        System.out.println("Type 1 voor extra opties");
+        System.out.println("Type 2 om te stoppen");
+
+        i = 0;
+        int keuzextra = scanner.nextInt();
+        if(keuzextra == 1 ) {
+
+            for (Onderdelen onderdelen1 : extras.getOnderdelen()) {
+                int telOp = i += 1;
+                System.out.println(telOp + " " + onderdelen1.getNaam());
+            }
+        }
+           else{
+                scheepsBouwerMenu(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, extras, gebruikers);
+
+            }
+
     }
 
 
 
 
 
-    public static void voegMilieukorting(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> categorien, ArrayList<Gebruiker> gebruikers) {
+    public static void voegMilieukorting(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, SoortOnderdelen categorien, ArrayList<Gebruiker> gebruikers) {
        Scanner scanner = new Scanner(System.in);
        int i = 0;
        for(MilieuKorting milieuKorting: milieuKortingen){
@@ -808,7 +833,7 @@ int i = 0;
 
         scheepsBouwerMenu(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, categorien, gebruikers);
     }
-    public static void onderdelenVoegMilieukortingToe(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> categorien, ArrayList<Gebruiker> gebruikers) {
+    public static void onderdelenVoegMilieukortingToe(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, SoortOnderdelen categorien, ArrayList<Gebruiker> gebruikers) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Voor welk soort boot onderdelen?");
@@ -857,7 +882,7 @@ i = 0;
     }
 
 
-    public static void kiesKlantkorting(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
+    public static void kiesKlantkorting(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, SoortOnderdelen soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
         Scanner scanner = new Scanner(System.in);
 
         for (int i = 0; i < klanten.size(); i++) {
@@ -884,7 +909,7 @@ i = 0;
         scheepsBouwerMenu(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
     }
 
-        public static void voegNieuweOnderdelen(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
+        public static void voegNieuweOnderdelen(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, SoortOnderdelen soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
             Scanner scanner = new Scanner(System.in);
             int i = 0;
         for (Boot boot : boten) {
@@ -908,7 +933,7 @@ i = 0;
             gekozenCategorie.onderdelen.add(new Onderdelen(nieuweOnderdeel));
             scheepsBouwerMenu(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, soortOnderdelens, gebruikers);
         }
-    public static void maakNieuweKlantType(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, ArrayList<SoortOnderdelen> soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
+    public static void maakNieuweKlantType(ArrayList<MilieuKorting> milieuKortingen, ArrayList<Boot> boten, Gebruiker jouGebruiker, Totaal totaal, KlantType klant, ArrayList<KlantType> klanten, ArrayList<Onderdelen> onderdelen, SoortOnderdelen soortOnderdelens, ArrayList<Gebruiker> gebruikers) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Wilt u een nieuwe klanttype aanmaken? J/N");
         String keuze = scanner.nextLine();
@@ -938,7 +963,7 @@ i = 0;
         gebruikers.add(new Gebruiker("Lennart"));
     }
 
-    public static void initialiseerExtra(ArrayList<Extras> extra) {
+    public static void initialiseerExtra(ArrayList<Onderdelen> extra) {
         extra.add(new Extras("Airconditioning"));
         extra.add(new Extras("Koelkast"));
         extra.add(new Extras("Binnenstoelen"));
@@ -952,15 +977,57 @@ i = 0;
         klantTypes.add(new KlantType("Overheid"));
     }
 
-    public static void initialiseerNavigatieSysteem(ArrayList<Onderdelen> navigatieSystemen) {
-        navigatieSystemen.add(new Onderdelen("GPS Ontvanger"));
-        navigatieSystemen.add(new Onderdelen("Kaartplotter"));
-        navigatieSystemen.add(new Onderdelen("Compass"));
-        navigatieSystemen.add(new Onderdelen("Diepte meter"));
-        navigatieSystemen.add(new Onderdelen("Traagsheidsnavigatie"));
-    }
+    public static void initialiseerNavigatieSysteemJacht(SoortOnderdelen navigatieSystemen) {
+        ArrayList<Onderdelen> onderdelens = new ArrayList<>();
 
-    public static void initialiseerHout(SoortOnderdelen hout) {
+        onderdelens.add(new Onderdelen("GPS Ontvanger"));
+        onderdelens.add(new Onderdelen("Kaartplotter"));
+        onderdelens.add(new Onderdelen("Compass"));
+        onderdelens.add(new Onderdelen("Diepte meter"));
+        onderdelens.add(new Onderdelen("Traagsheidsnavigatie"));
+        navigatieSystemen.setOnderdelen(onderdelens);
+    }
+        public static void initialiseerNavigatieSysteemFerry(SoortOnderdelen navigatieSystemen) {
+            ArrayList<Onderdelen> onderdelens = new ArrayList<>();
+
+            onderdelens.add(new Onderdelen("Kaartplotter"));
+            onderdelens.add(new Onderdelen("Compass"));
+            navigatieSystemen.setOnderdelen(onderdelens);
+        }
+
+        public static void initialiseerNavigatieSysteemWoonBoot(SoortOnderdelen navigatieSystemen) {
+            ArrayList<Onderdelen> onderdelens = new ArrayList<>();
+
+            onderdelens.add(new Onderdelen("GPS Ontvanger"));
+            onderdelens.add(new Onderdelen("Kaartplotter"));
+            onderdelens.add(new Onderdelen("Compass"));
+
+            navigatieSystemen.setOnderdelen(onderdelens);
+        }
+
+        public static void initialiseerNavigatieSysteemSpeedBoot(SoortOnderdelen navigatieSystemen) {
+            ArrayList<Onderdelen> onderdelens = new ArrayList<>();
+
+            onderdelens.add(new Onderdelen("GPS Ontvanger"));
+            onderdelens.add(new Onderdelen("Compass"));
+            onderdelens.add(new Onderdelen("Diepte meter"));
+            onderdelens.add(new Onderdelen("Traagsheidsnavigatie"));
+            navigatieSystemen.setOnderdelen(onderdelens);
+        }
+
+        public static void initialiseerNavigatieSysteemContainer(SoortOnderdelen navigatieSystemen) {
+            ArrayList<Onderdelen> onderdelens = new ArrayList<>();
+
+            onderdelens.add(new Onderdelen("GPS Ontvanger"));
+            onderdelens.add(new Onderdelen("Kaartplotter"));
+            onderdelens.add(new Onderdelen("Compass"));
+            onderdelens.add(new Onderdelen("Diepte meter"));
+            onderdelens.add(new Onderdelen("Traagsheidsnavigatie"));
+            navigatieSystemen.setOnderdelen(onderdelens);
+        }
+
+
+        public static void initialiseerVloerJacht(SoortOnderdelen hout) {
         ArrayList<Onderdelen> onderdelens = new ArrayList<>();
         onderdelens.add(new Onderdelen("Iroko"));
         onderdelens.add(new Onderdelen("Mahonie"));
@@ -972,35 +1039,76 @@ i = 0;
         onderdelens.add(new Onderdelen("Afzelia"));
         hout.setOnderdelen(onderdelens);
     }
+        public static void initialiseerVloerFerry(SoortOnderdelen hout) {
+            ArrayList<Onderdelen> onderdelens = new ArrayList<>();
+            onderdelens.add(new Onderdelen("Iroko"));
+            onderdelens.add(new Onderdelen("Mahonie"));
 
-    public static void initialiseerMotor(ArrayList<Onderdelen> motors) {
-        motors.add(new Onderdelen("Elektrische binnenboord motor"));
-        motors.add(new Onderdelen("Elektrische buitenboord motor"));
-        motors.add(new Onderdelen("Diesel binnenboord motor"));
-        motors.add(new Onderdelen("Diesel buitenboord motor"));
+            onderdelens.add(new Onderdelen("Essen"));
+            onderdelens.add(new Onderdelen("Afzelia"));
+            hout.setOnderdelen(onderdelens);
+        }
+        public static void initialiseerVloerWoonBoot(SoortOnderdelen hout) {
+            ArrayList<Onderdelen> onderdelens = new ArrayList<>();
+
+            onderdelens.add(new Onderdelen("Mahonie"));
+            onderdelens.add(new Onderdelen("Oak"));
+            onderdelens.add(new Onderdelen("Plantage teak"));
+
+            onderdelens.add(new Onderdelen("Essen"));
+            onderdelens.add(new Onderdelen("Afzelia"));
+            hout.setOnderdelen(onderdelens);
+        }
+
+
+
+
+
+    public static void initialiseerBrandstofTankJacht(SoortOnderdelen brandstofTank) {
+        ArrayList<Onderdelen> onderdelens = new ArrayList<>();
+        onderdelens.add(new Onderdelen("Standaard tank"));
+        onderdelens.add(new Onderdelen("Groot tank"));
+        onderdelens.add(new Onderdelen("Extra groot tank"));
+        brandstofTank.setOnderdelen(onderdelens);
     }
+        public static void initialiseerBrandstofTankFerry(SoortOnderdelen brandstofTank) {
+            ArrayList<Onderdelen> onderdelens = new ArrayList<>();
+            onderdelens.add(new Onderdelen("Standaard tank"));
+            onderdelens.add(new Onderdelen("Jerrycan"));
+            brandstofTank.setOnderdelen(onderdelens);
 
-    public static void initialiseerBrandstofTank(ArrayList<Onderdelen> brandstofTanken) {
-        brandstofTanken.add(new Onderdelen("Standaard tank"));
-        brandstofTanken.add(new Onderdelen("Groot tank"));
-        brandstofTanken.add(new Onderdelen("Extra groot tank"));
-        brandstofTanken.add(new Onderdelen("Jerrycan"));
+        }
+        public static void initialiseerBrandstofTankSpeedBoot(SoortOnderdelen brandstofTank) {
+            ArrayList<Onderdelen> onderdelens = new ArrayList<>();
+            onderdelens.add(new Onderdelen("Standaard tank"));
+            onderdelens.add(new Onderdelen("Jerrycan"));
+            brandstofTank.setOnderdelen(onderdelens);
+
+        }
+        public static void initialiseerBrandstofTankContainer(SoortOnderdelen brandstofTank) {
+            ArrayList<Onderdelen> onderdelens = new ArrayList<>();
+            onderdelens.add(new Onderdelen("Groot tank"));
+            onderdelens.add(new Onderdelen("Extra groot tank"));
+
+            brandstofTank.setOnderdelen(onderdelens);
     }
+        public static void initialiseerBrandstofTankWoonBoot(SoortOnderdelen brandstofTank) {
+            ArrayList<Onderdelen> onderdelens = new ArrayList<>();
+            onderdelens.add(new Onderdelen("Standaard tank"));
+            onderdelens.add(new Onderdelen("Jerrycan"));
+            brandstofTank.setOnderdelen(onderdelens);
 
-    public static void initialiseerCategorien(ArrayList<SoortOnderdelen> categorien, SoortOnderdelen navigatieSysteem, SoortOnderdelen motor, SoortOnderdelen brandStofTank, SoortOnderdelen hout) {
-        categorien.add(navigatieSysteem);
-        categorien.add(motor);
-        categorien.add(brandStofTank);
-        categorien.add(hout);
+        }
 
-
-    }
-        public static void initialiseerCategorienJachtOnderdelen(ArrayList<SoortOnderdelen> jacht, SoortOnderdelen jacht1, SoortOnderdelen jacht2, SoortOnderdelen jacht3, SoortOnderdelen jacht4, SoortOnderdelen jacht5) {
+        public static void initialiseerCategorienJachtOnderdelen(ArrayList<SoortOnderdelen> jacht, SoortOnderdelen jacht1, SoortOnderdelen jacht2, SoortOnderdelen jacht3, SoortOnderdelen jacht4, SoortOnderdelen jacht5, SoortOnderdelen jacht6, SoortOnderdelen jacht7) {
             jacht.add(jacht1);
             jacht.add(jacht2);
             jacht.add(jacht3);
             jacht.add(jacht4);
             jacht.add(jacht5);
+            jacht.add(jacht6);
+            jacht.add(jacht7);
+
         }
 
         public static void initialiseerJachtOnderdelenRomp(SoortOnderdelen jachtOnderdelen) {
@@ -1016,269 +1124,213 @@ i = 0;
 
         public static void initialiseerJachtOnderdelenDek(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("Teakhout"));
-            onderdelens.add(new Onderdelen("Polyester"));
+            onderdelens.add(new Onderdelen("Sun deck"));
+            onderdelens.add(new Onderdelen("Beach deck"));
+            onderdelens.add(new Onderdelen("Lagoon deck"));
+
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
-        //  public static void initialiseerJachtOnderdelenInterieur(ArrayList<SoortOnderdelen> jachtOnderdelen, ArrayList<Onderdelen> houten) {
-        //    ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-        //  onderdelens.add(new Onderdelen("Houtwerk"));
-        //jachtOnderdelen.add(new SoortOnderdelen("Vloer", houten));
-        //onderdelens.add(new Onderdelen("Bekleding"));
-        //jachtOnder
 
-        //}
 
         public static void initialiseerJachtOnderdelenStuurSysteem(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
+            onderdelens.add(new Onderdelen("Hydraulisch stuursysteem"));
+            onderdelens.add(new Onderdelen("Vevor HC4645H"));
+            onderdelens.add(new Onderdelen("Whaly 99"));
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
         public static void initialiseerJachtOnderdelenMotor(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("Elektrische binnenboord motor"));
-            onderdelens.add(new Onderdelen("Elektrische buitenboord motor"));
-            onderdelens.add(new Onderdelen("Diesel binnenboord motor"));
-            onderdelens.add(new Onderdelen("Diesel buitenboord motor"));
+            onderdelens.add(new Onderdelen("Siemens 1LE1503"));
+            onderdelens.add(new Onderdelen("Suzuki DF100B"));
+            onderdelens.add(new Onderdelen("IE1-EG"));
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
 
-        public static void initialiseerCategorienFerryOnderdelen(ArrayList<SoortOnderdelen> jacht, SoortOnderdelen jacht1, SoortOnderdelen jacht2, SoortOnderdelen jacht3, SoortOnderdelen jacht4, SoortOnderdelen jacht5) {
-            jacht.add(jacht1);
-            jacht.add(jacht2);
-            jacht.add(jacht3);
-            jacht.add(jacht4);
-            jacht.add(jacht5);
+        public static void initialiseerCategorienFerryOnderdelen(ArrayList<SoortOnderdelen> ferry, SoortOnderdelen ferry1, SoortOnderdelen ferry2, SoortOnderdelen ferry3, SoortOnderdelen ferry4, SoortOnderdelen ferry5, SoortOnderdelen ferry6, SoortOnderdelen ferry7) {
+            ferry.add(ferry1);
+            ferry.add(ferry2);
+            ferry.add(ferry3);
+            ferry.add(ferry4);
+            ferry.add(ferry5);
+            ferry.add(ferry6);
+            ferry.add(ferry7);
+
         }
 
         public static void initialiseerFerryOnderdelenRomp(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
             onderdelens.add(new Onderdelen("Waterverplaatsende romp"));
             onderdelens.add(new Onderdelen("Halfgeleider romp"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
-        public static void initialiseerFerryOnderdelen2(SoortOnderdelen jachtOnderdelen) {
+        public static void initialiseerFerryOnderdelenDek(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
+            onderdelens.add(new Onderdelen("Autodek"));
+            onderdelens.add(new Onderdelen("Passagiersdek"));
+            onderdelens.add(new Onderdelen("Vrachtdek"));
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
-        public static void initialiseerFerryOnderdelen3(SoortOnderdelen jachtOnderdelen) {
+        public static void initialiseerFerryOnderdelenStuurSysteem(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
+            onderdelens.add(new Onderdelen("Mavimare GE 30"));
+            onderdelens.add(new Onderdelen("EV-100"));
+            onderdelens.add(new Onderdelen("Seastar light"));
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
-        public static void initialiseerFerryOnderdelen4(SoortOnderdelen jachtOnderdelen) {
+
+        public static void initialiseerFerryOnderdelenMotor(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
+            onderdelens.add(new Onderdelen("Elektromotor"));
+            onderdelens.add(new Onderdelen("Vetus scheepsdiesel"));
+            onderdelens.add(new Onderdelen("Lofrans Falkon"));
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
-        public static void initialiseerFerryOnderdelen5(SoortOnderdelen jachtOnderdelen) {
-            ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
-            jachtOnderdelen.setOnderdelen(onderdelens);
+        public static void initialiseerCategorienWoonBootOnderdelen(ArrayList<SoortOnderdelen> woonBoot, SoortOnderdelen woonBoot1, SoortOnderdelen woonBoot2, SoortOnderdelen woonBoot3, SoortOnderdelen woonBoot4, SoortOnderdelen woonBoot5, SoortOnderdelen woonBoot6, SoortOnderdelen woonBoot7) {
+            woonBoot.add(woonBoot1);
+            woonBoot.add(woonBoot2);
+            woonBoot.add(woonBoot3);
+            woonBoot.add(woonBoot4);
+            woonBoot.add(woonBoot5);
+            woonBoot.add(woonBoot6);
+            woonBoot.add(woonBoot7);
+
         }
 
-        public static void initialiseerCategorienWoonBootOnderdelen(ArrayList<SoortOnderdelen> jacht, SoortOnderdelen jacht1, SoortOnderdelen jacht2, SoortOnderdelen jacht3, SoortOnderdelen jacht4, SoortOnderdelen jacht5) {
-            jacht.add(jacht1);
-            jacht.add(jacht2);
-            jacht.add(jacht3);
-            jacht.add(jacht4);
-            jacht.add(jacht5);
-        }
-
-        public static void initialiseerWoonBootOnderdelen1(SoortOnderdelen jachtOnderdelen) {
+        public static void initialiseerWoonBootOnderdelenRomp(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
             onderdelens.add(new Onderdelen("Waterverplaatsende romp"));
             onderdelens.add(new Onderdelen("Halfgeleider romp"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
             jachtOnderdelen.setOnderdelen(onderdelens);
 
         }
 
-        public static void initialiseerWoonBootOnderdelen2(SoortOnderdelen jachtOnderdelen) {
+
+
+        public static void initialiseerWoonBootOnderdelenDek(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
+            onderdelens.add(new Onderdelen("Zwembad"));
+            onderdelens.add(new Onderdelen("Dak terras"));
+            onderdelens.add(new Onderdelen("Balkon"));
+
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
-        public static void initialiseerWoonBootOnderdelen3(SoortOnderdelen jachtOnderdelen) {
+        public static void initialiseerWoonBootOnderdelenStuur(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
+            onderdelens.add(new Onderdelen("Sea star"));
+            onderdelens.add(new Onderdelen("Steer flex 3000"));
+            onderdelens.add(new Onderdelen("Mavi Mare 350hp"));
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
-        public static void initialiseerWoonBootOnderdelen4(SoortOnderdelen jachtOnderdelen) {
+        public static void initialiseerWoonBootOnderdelenMotor(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
+            onderdelens.add(new Onderdelen("Motor 28.92 met CBB"));
+            onderdelens.add(new Onderdelen("Honda GX390"));
+            onderdelens.add(new Onderdelen("Mariner 5 PK"));
+
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
-        public static void initialiseerWoonBootOnderdelen5(SoortOnderdelen jachtOnderdelen) {
-            ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
-            jachtOnderdelen.setOnderdelen(onderdelens);
+
+
+        public static void initialiseerCategorienSpeedBootOnderdelen(ArrayList<SoortOnderdelen> speedBoot, SoortOnderdelen speedBoot1, SoortOnderdelen speedBoot2, SoortOnderdelen speedBoot3, SoortOnderdelen speedBoot4, SoortOnderdelen speedBoot5, SoortOnderdelen speedBoot6) {
+            speedBoot.add(speedBoot1);
+            speedBoot.add(speedBoot2);
+            speedBoot.add(speedBoot3);
+            speedBoot.add(speedBoot4);
+            speedBoot.add(speedBoot5);
+            speedBoot.add(speedBoot6);
+
+
         }
 
-        public static void initialiseerCategorienSpeedBootOnderdelen(ArrayList<SoortOnderdelen> jacht, SoortOnderdelen jacht1, SoortOnderdelen jacht2, SoortOnderdelen jacht3, SoortOnderdelen jacht4, SoortOnderdelen jacht5) {
-            jacht.add(jacht1);
-            jacht.add(jacht2);
-            jacht.add(jacht3);
-            jacht.add(jacht4);
-            jacht.add(jacht5);
-        }
-
-        public static void initialiseerSpeedBootOnderdelen1(SoortOnderdelen jachtOnderdelen) {
+        public static void initialiseerSpeedBootOnderdelenRomp(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
             onderdelens.add(new Onderdelen("Planerende romp"));
             onderdelens.add(new Onderdelen("Halfgeleider romp"));
             onderdelens.add(new Onderdelen("Waterverplaatsende romp"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
+
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
-        public static void initialiseerSpeedBootOnderdelen2(SoortOnderdelen jachtOnderdelen) {
+
+
+        public static void initialiseerSpeedBootOnderdelenDek(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
+            onderdelens.add(new Onderdelen("Zonnedek"));
+            onderdelens.add(new Onderdelen("Lounge dek"));
+            onderdelens.add(new Onderdelen("Duikdek"));
+
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
-        public static void initialiseerSpeedBootOnderdelen3(SoortOnderdelen jachtOnderdelen) {
+        public static void initialiseerSpeedBootOnderdelenStuur(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
+            onderdelens.add(new Onderdelen("Teleflex stuursysteem"));
+            onderdelens.add(new Onderdelen("Riviera AR83"));
+            onderdelens.add(new Onderdelen("Ultraflex T71FC"));
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
-        public static void initialiseerSpeedBootOnderdelen4(SoortOnderdelen jachtOnderdelen) {
+        public static void initialiseerSpeedBootOnderdelenMotor(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
+            onderdelens.add(new Onderdelen("Suzuki DF100B"));
+            onderdelens.add(new Onderdelen("Volvo Penta D13-700"));
+            onderdelens.add(new Onderdelen("ePropulsion"));
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
-        public static void initialiseerSpeedBootOnderdelen5(SoortOnderdelen jachtOnderdelen) {
+        public static void initialiseerCategorienContainerOnderdelen(ArrayList<SoortOnderdelen> container, SoortOnderdelen container1, SoortOnderdelen container2, SoortOnderdelen container3, SoortOnderdelen container4, SoortOnderdelen container5, SoortOnderdelen container6) {
+            container.add(container1);
+            container.add(container2);
+            container.add(container3);
+            container.add(container4);
+            container.add(container5);
+            container.add(container6);
+
+
+        }
+
+        public static void initialiseerContainerOnderdelenRomp(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
+            onderdelens.add(new Onderdelen("Halfgeleider romp"));
+            onderdelens.add(new Onderdelen("Waterverplaatsende romp"));
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
-        public static void initialiseerCategorienContainerOnderdelen(ArrayList<SoortOnderdelen> jacht, SoortOnderdelen jacht1, SoortOnderdelen jacht2, SoortOnderdelen jacht3, SoortOnderdelen jacht4, SoortOnderdelen jacht5) {
-            jacht.add(jacht1);
-            jacht.add(jacht2);
-            jacht.add(jacht3);
-            jacht.add(jacht4);
-            jacht.add(jacht5);
-        }
 
-        public static void initialiseerContainerOnderdelen1(SoortOnderdelen jachtOnderdelen) {
+
+        public static void initialiseerContainerOnderdelenDek(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
+            onderdelens.add(new Onderdelen("Reefer schip"));
+            onderdelens.add(new Onderdelen("Heavy lift schip"));
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
-        public static void initialiseerContainerOnderdelen2(SoortOnderdelen jachtOnderdelen) {
+        public static void initialiseerContainerOnderdelenStuur(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
+            onderdelens.add(new Onderdelen("HIBO 8T"));
+            onderdelens.add(new Onderdelen("Vetus V-12"));
+            onderdelens.add(new Onderdelen("Mavimare GE 30"));
+
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
-        public static void initialiseerContainerOnderdelen3(SoortOnderdelen jachtOnderdelen) {
-            ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
-            jachtOnderdelen.setOnderdelen(onderdelens);
-        }
 
-        public static void initialiseerContainerOnderdelen4(SoortOnderdelen jachtOnderdelen) {
+        public static void initialiseerContainerOnderdelenMotor(SoortOnderdelen jachtOnderdelen) {
             ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
-            jachtOnderdelen.setOnderdelen(onderdelens);
-        }
+            onderdelens.add(new Onderdelen("Wartsila-Sulzer RTA96"));
+            onderdelens.add(new Onderdelen("Yamaha 425 PK"));
+            onderdelens.add(new Onderdelen("Vetus E-line"));
 
-        public static void initialiseerContainerOnderdelen5(SoortOnderdelen jachtOnderdelen) {
-            ArrayList<Onderdelen> onderdelens = new ArrayList<>();
-            onderdelens.add(new Onderdelen("1"));
-            onderdelens.add(new Onderdelen("2"));
-            onderdelens.add(new Onderdelen("3"));
-            onderdelens.add(new Onderdelen("4"));
-            onderdelens.add(new Onderdelen("5"));
             jachtOnderdelen.setOnderdelen(onderdelens);
         }
 
