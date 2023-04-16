@@ -276,12 +276,13 @@ import java.util.Scanner;
 i = 0;
         for(Onderdelen onderdelen1: gekozenCategorie.getOnderdelen()){
             int loopTel = i += 1;
-            System.out.println(loopTel +". Naam: " + onderdelen1.getNaam());
+            if (onderdelen1.getPrijs() == 0 && onderdelen1.milieuKorting == null){
+            System.out.println(loopTel +". Naam: " + onderdelen1.getNaam());}
             if (onderdelen1.getPrijs() != 0){
-                System.out.print("     Prijs: " + onderdelen1.getPrijs());
+                System.out.print(loopTel +". Naam: " + onderdelen1.getNaam() +"  Prijs: " + onderdelen1.getPrijs());
             }
             if (onderdelen1.milieuKorting != null){
-                System.out.print("     Milieukorting: " + onderdelen1.milieuKorting.getNaam());
+                System.out.print(loopTel +". Naam: " + onderdelen1.getNaam() + " Milieukorting: " + onderdelen1.milieuKorting.getNaam());
             }
 
         }
@@ -791,23 +792,24 @@ int i = 0;
             }
 
         }
-        System.out.println("Wilt u de extra opties zien?");
-        System.out.println("Type 1 voor extra opties");
-        System.out.println("Type 2 om te stoppen");
+        System.out.println("Wilt u de extra opties zien? ja/nee");
 
-        i = 0;
-        int keuzextra = scanner.nextInt();
-        if(keuzextra == 1 ) {
+
+      scanner.nextLine();
+        String keuzextra = scanner.nextLine();
+        if(keuzextra.equals("ja")) {
 
             for (Onderdelen onderdelen1 : extras.getOnderdelen()) {
-                int telOp = i += 1;
-                System.out.println(telOp + " " + onderdelen1.getNaam());
+
+                System.out.println("- " + onderdelen1.getNaam());
             }
-        }
-           else{
+
+
                 scheepsBouwerMenu(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, extras, gebruikers);
 
             }
+        scheepsBouwerMenu(milieuKortingen, boten, jouGebruiker, totaal, klant, klanten, onderdelen, extras, gebruikers);
+
 
     }
 
