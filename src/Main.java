@@ -9,7 +9,7 @@ import java.util.Scanner;
 
         ArrayList<MilieuKorting> milieuKortingen = new ArrayList<>();
         milieuKortingen.add(new MilieuKorting("Lager CO2 uitstoot"));
-        milieuKortingen.add(new MilieuKorting("Duurzaam"));
+        milieuKortingen.add(new MilieuKorting("Duurzaam Product"));
         milieuKortingen.add(new MilieuKorting("Elektrisch onderdeel"));
 
 
