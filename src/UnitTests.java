@@ -5,12 +5,24 @@ import java.util.ArrayList;
 
 class UnitTests {
 
+
     @Test
-    public  void checkLogin() {
+    //test of de milieukortingen correct bij de prijzen van onderdelen word toegevoegd
+    public void checkBerekeningMilieuKorting(){
+   MilieuKorting milieuKorting =new MilieuKorting("Duurzaam");
+    Onderdelen jacuzzi = new Onderdelen("Jacuzzi");
+        milieuKorting.setKortingen(10);
+        jacuzzi.setMilieuKorting(milieuKorting);
+        jacuzzi.setPrijs(100);
+
+
+        Assertions.assertEquals(90, jacuzzi.getPrijs() );
 
     }
-    @Test
 
+
+    @Test
+    //test of de klantkorting correct op de offerte word berekent
     public void checkBerekeningKlantKortingOpOfferte() {
         Gebruiker gebruiker = new Gebruiker("Steven");
         //Object Gebruiker word gebruikt om de informatie voor de offerte bij een gebruiker op te slaan
@@ -33,6 +45,7 @@ class UnitTests {
     }
 
     @Test
+    //test of nieuwe klanttypen correct in het systeem worden toegevoegd
     public void checkToevoegenKlantType() {
         KlantType klantType = new KlantType();
         klantType.setNaam("NieuweKlant");
@@ -40,18 +53,28 @@ class UnitTests {
     }
 
     @Test
+    //test of klant kortingen in het systeem worden toegevoegd
     public void checkToevoegenKlantKorting() {
         KlantType klantType = new KlantType();
         int nummer = 20;
         klantType.setKorting(nummer);
         Assertions.assertEquals(20, klantType.getKorting());
     }
-
-    public void checkTotaalPrijs() {
-    }
-
     @Test
-    public void initialiseerOnderdelen() {
+    //test of onderdelen correct worden toegevoegd
+    public void testOfOnderdeelToegevoegdWord() {
+        SoortOnderdelen soortOnderdelen = new SoortOnderdelen("Zeil");
+        ArrayList<Onderdelen> lijstOnderdelen = new ArrayList<>();
+        Onderdelen onderdelen = new Onderdelen("Grootte zeil");
+        lijstOnderdelen.add(onderdelen);
+        soortOnderdelen.setOnderdelen(lijstOnderdelen);
+        Assertions.assertEquals("Grootte zeil", soortOnderdelen.getOnderdelen().get(0).getNaam());
+
+    }
+        @Test
+    //test of onderdelen correct worden uitgeprint
+        //test of onderdelen correct worden geselecteerd
+    public void testOfOnderdelenWordenUitGeprint() {
 
         SoortOnderdelen extra = new SoortOnderdelen("Extra");
         ArrayList<Onderdelen> lijstOnderdelen = new ArrayList<>();
@@ -64,11 +87,15 @@ class UnitTests {
             int i = 0;
             System.out.println(onderdeel.getNaam());
         }
+         int keuze = 1 - 1;
+        //- 1 omdat keuze word gebruikt om een object te halen uit een arrayList
+        Onderdelen gekozenOnderdeel = extra.getOnderdelen().get(keuze);
+        Assertions.assertEquals("Romp", gekozenOnderdeel.getNaam());
 
-        Assertions.assertEquals("Romp", lijstOnderdelen.get(0).naam);
-        Assertions.assertEquals("Stuur", lijstOnderdelen.get(1).naam);
-        Assertions.assertEquals("Anker", lijstOnderdelen.get(2).naam);
-        Assertions.assertEquals("Zeil", lijstOnderdelen.get(3).naam);
+        Assertions.assertEquals("Romp", lijstOnderdelen.get(0).getNaam());
+        Assertions.assertEquals("Stuur", lijstOnderdelen.get(1).getNaam());
+        Assertions.assertEquals("Anker", lijstOnderdelen.get(2).getNaam());
+        Assertions.assertEquals("Zeil", lijstOnderdelen.get(3).getNaam());
 
 
     }
