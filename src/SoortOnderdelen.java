@@ -26,8 +26,8 @@ class SoortOnderdelen {
         this.onderdelen = onderdelen;
     }
 
-    public void setExtras(ArrayList<Extras> extras) {
-        this.extras = extras;
+    public void setExtras(ArrayList<Onderdelen> onderdelen) {
+        this.onderdelen = onderdelen;
     }
 
     public ArrayList<Onderdelen> getOnderdelen() {
