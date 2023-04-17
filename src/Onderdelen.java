@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 class Onderdelen {
     protected String naam;
@@ -22,16 +21,16 @@ class Onderdelen {
 
 
     public void setPrijs(double prijs) {
-        this.prijs = prijs;
-    }
+        if(milieuKorting != null){
+            this.prijs = prijs - (prijs * (milieuKorting.getKortingen() / 100));}
+        if(milieuKorting == null){
+            this.prijs = prijs;}
+        }
 
 
 
     public double getPrijs() {
-        if(milieuKorting != null){
-            double onderdeelPrijsMilieu = (prijs * milieuKorting.getKortingen() / 100);
-prijs = onderdeelPrijsMilieu;
-        }
+
 
         return prijs;
     }
