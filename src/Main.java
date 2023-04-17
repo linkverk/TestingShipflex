@@ -217,13 +217,13 @@ import java.util.Scanner;
         System.out.println(jouGebruiker.getBootNaam());
         System.out.println("---------------------------------------------------------------------------------------------");
         System.out.printf("| %-30s | %20s | %30s |%n", "Naam", "Prijs", "Milieukorting");
-        System.out.println("--------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------------------------");
 
         for (Onderdelen onderdeel : jouGebruiker.getTotaal().onderdelen) {
             if (onderdeel.milieuKorting == null) {
-                System.out.printf("| %-25s | %20s | %20s |%n", onderdeel.getNaam(), onderdeel.getPrijs(), "geen");
+                System.out.printf("| %-30s | %20s | %30s |%n", onderdeel.getNaam(), onderdeel.getPrijs(), "geen");
             } else {
-                System.out.printf("| %-25s | %20s | %20s |%n", onderdeel.getNaam(), onderdeel.getPrijs(), onderdeel.milieuKorting.getNaam() + " (" + onderdeel.milieuKorting.getKortingen() + "%)");
+                System.out.printf("| %-30s | %20s | %30s |%n", onderdeel.getNaam(), onderdeel.getPrijs(), onderdeel.milieuKorting.getNaam() + " (" + onderdeel.milieuKorting.getKortingen() + "%)");
             }
         }
         System.out.println("---------------------------------------------------------------------------------------------");
@@ -279,10 +279,10 @@ i = 0;
             if (onderdelen1.getPrijs() == 0 && onderdelen1.milieuKorting == null){
             System.out.println(loopTel +". Naam: " + onderdelen1.getNaam());}
             if (onderdelen1.getPrijs() != 0){
-                System.out.print(loopTel +". Naam: " + onderdelen1.getNaam() +"  Prijs: " + onderdelen1.getPrijs());
+                System.out.println(loopTel +". Naam: " + onderdelen1.getNaam() +"  Prijs: " + onderdelen1.getPrijs());
             }
             if (onderdelen1.milieuKorting != null){
-                System.out.print(loopTel +". Naam: " + onderdelen1.getNaam() + " Milieukorting: " + onderdelen1.milieuKorting.getNaam());
+                System.out.println(loopTel +". Naam: " + onderdelen1.getNaam() + " Milieukorting: " + onderdelen1.milieuKorting.getNaam());
             }
 
         }
